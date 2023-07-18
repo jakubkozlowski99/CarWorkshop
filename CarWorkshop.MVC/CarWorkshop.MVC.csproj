@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CarWorkshop.Application\CarWorkshop.Application.csproj" />
+    <ProjectReference Include="..\CarWorkshop.Infrastructure\CarWorkshop.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
