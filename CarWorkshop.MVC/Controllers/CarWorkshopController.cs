@@ -20,7 +20,7 @@ namespace CarWorkshop.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CarWorkshopDto carWorkshop)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(carWorkshop);
             }
