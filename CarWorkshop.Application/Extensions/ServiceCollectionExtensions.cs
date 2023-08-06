@@ -1,7 +1,6 @@
-﻿using CarWorkshop.Application.CarWorkshop;
-using FluentValidation;
+﻿using FluentValidation;
 using CarWorkshop.Application.Mappings;
-using CarWorkshop.Application.Services;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
+using CarWorkshop.Application.CarWorkshop.Commands.CreateCarWorkshop;
 
 namespace CarWorkshop.Application.Extensions
 {
@@ -16,11 +16,11 @@ namespace CarWorkshop.Application.Extensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<ICarWorkshopService, CarWorkshopService>();
+            services.AddMediatR(typeof(CreateCarWorkshopCommand));
 
             services.AddAutoMapper(typeof(CarWorkshopMappingProfile));
 
-            services.AddValidatorsFromAssemblyContaining<CarWorkshopDtoValidator>()
+            services.AddValidatorsFromAssemblyContaining<CreateCarWorkshopCommandValidator>()
                 .AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters();
                 
