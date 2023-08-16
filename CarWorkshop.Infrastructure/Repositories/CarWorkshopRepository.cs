@@ -31,5 +31,8 @@ namespace CarWorkshop.Infrastructure.Repositories
         public async Task<Domain.Entities.CarWorkshop> GetByEncodedName(string encodedName)
             => await _dbContext.CarWorkshops.FirstAsync(cw => cw.EncodedName == encodedName);
 
+        public Task Commit()
+            => _dbContext.SaveChangesAsync();
+
     }
 }
