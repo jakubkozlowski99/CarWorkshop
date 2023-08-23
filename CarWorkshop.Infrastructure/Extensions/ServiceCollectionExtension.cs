@@ -22,8 +22,9 @@ namespace CarWorkshop.Infrastructure.Extensions
                 configuration.GetConnectionString("CarWorkshop")));
 
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<CarWorkshopDbContext>();
+
 
             services.AddScoped<CarWorkshopSeeder>();
 
