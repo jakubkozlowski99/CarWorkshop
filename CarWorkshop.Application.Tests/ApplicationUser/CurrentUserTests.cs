@@ -44,7 +44,7 @@ namespace CarWorkshop.Application.ApplicationUser.Tests
         }
 
         [Fact()]
-        public void IsInRole_WithNonMatchinCaseRole_ShouldReturnTrue()
+        public void IsInRole_WithNonMatchingCaseRole_ShouldReturnTrue()
         {
             // arrange
 
