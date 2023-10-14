@@ -27,7 +27,7 @@ namespace CarWorkshop.Application.ApplicationUser.Tests
                 new Claim(ClaimTypes.Role, "User")
             };
 
-            var user = new ClaimsPrincipal(new ClaimsIdentity(claims));
+            var user = new ClaimsPrincipal(new ClaimsIdentity(claims, "Test"));
 
             var httpContextAccessorMock = new Mock<IHttpContextAccessor>();
 
@@ -45,7 +45,9 @@ namespace CarWorkshop.Application.ApplicationUser.Tests
             // arrange
 
             currentUser.Should().NotBeNull();
-            currentUser.Id.Should().Be("1");
+            currentUser!.Id.Should().Be("1");
+            currentUser.Email.Should().Be("test@example.com");
+            currentUser.Roles.Should().ContainInOrder("Admin", "User");
         }
     }
 }
